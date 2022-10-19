@@ -2,7 +2,7 @@
 class AssinaturaController {
 
     static createAssinatura = async (req, res) => {
-        const emails = req.body.Subscription.Customer.emails
+        // const emails = req.body.Subscription.Customer.emails
         const dadosReq = req.body
 
         if(dadosReq.Subscription){
