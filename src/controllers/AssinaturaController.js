@@ -3,9 +3,13 @@ class AssinaturaController {
 
     static createAssinatura = async (req, res) => {
         const emails = req.body.Subscription.Customer.emails
-        console.log('Emails: ', emails)
+        const dadosReq = req.body
 
-        emails.map((email) => console.log(email))
+        if(dadosReq.Subscription){
+            console.log(dadosReq.Subscription.status)
+        }else if(dadosReq.billInternalId){
+            console.log(dadosReq.statusInsertdate)
+        }
         res.json({success: true})
     }
 }
