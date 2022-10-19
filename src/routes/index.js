@@ -9,6 +9,6 @@ router.get('/', (req, res) => {
     res.json({message: 'Server init'})
 })
 
-router.get('/assinatura/inserir', AssinaturaController.createAssinatura)
+router.post('/assinatura/inserir', AssinaturaController.createAssinatura)
 
 export default router;
