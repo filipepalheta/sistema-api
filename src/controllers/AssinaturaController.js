@@ -8,7 +8,7 @@ class AssinaturaController {
         if(dadosReq.Subscription){
             console.log(dadosReq.Subscription.status)
         }else if(dadosReq.billInternalId){
-            console.log(dadosReq.statusInsertdate)
+            console.log(dadosReq)
         }
         res.json({success: true})
     }
