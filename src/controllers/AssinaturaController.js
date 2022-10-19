@@ -5,7 +5,8 @@ class AssinaturaController {
         // const emails = req.body.Subscription.Customer.emails
         const dadosReq = req.body
         const transactionType = req.body.event
-        console.log(transactionType)
+        console.log('Tipo de transação: ',transactionType)
+        console.log(dadosReq)
 
         // if(dadosReq.Subscription){
         //     console.log(dadosReq.Subscription.status)
