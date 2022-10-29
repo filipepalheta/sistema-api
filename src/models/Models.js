@@ -89,7 +89,7 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
     updatedAt: false
 })
 
-export const Users = instance.define('Users', {
+export const Users = instance.define('users', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,

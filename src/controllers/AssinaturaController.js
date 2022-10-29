@@ -13,18 +13,19 @@ class AssinaturaController {
             6: 'Teste'
         }
 
-        if (transactionType == 'transaction.status' || transactionType == 'updateStatus') {
+        if (transactionType == 'transaction.status' || transactionType == 'transaction.updateStatus') {
 
             if (dadosReq.Subscription.status == 'active') {
 
                 const helperCostumer = dadosReq.Subscription.Customer
+                const subId = dadosReq.Subscription.galaxPayId
                 const helperCard = dadosReq.Subscription.PaymentMethodCreditCard.Card
                 const planId = dadosReq.Subscription.planGalaxPayId
                 const myID = dadosReq.Subscription.myId
 
                 const verificar = await Assinatura_Registros.findOne({
                     where: {
-                        galaxyPayId: helperCostumer.galaxPayId
+                        galaxyPayId: subId
                     }
                 })
 
@@ -74,14 +75,14 @@ class AssinaturaController {
                         vencimento: dadosReq.Transaction.payday
                     }, {
                         where: {
-                            galaxyPayId: costumer.galaxyPayId,
+                            galaxyPayId: subId,
                         }
                     })
                 } else {
                     await Assinatura_Registros.create({
                         plan_my_id: planId,
                         value: costumer.value,
-                        galaxyPayId: costumer.galaxyPayId,
+                        galaxyPayId: subId,
                         periodicity: dadosReq.Subscription.periodicity,
                         updated_at: costumer.updated_at,
                         name: costumer.name,
