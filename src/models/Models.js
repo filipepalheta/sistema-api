@@ -16,12 +16,12 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
         type: DataTypes.DECIMAL,
         allowNull: false
     },
-    myID: {
+    galaxyPayId: {
         type: DataTypes.NUMBER, 
-        allowNull: false
+        allowNull: true
     },
     periodicity: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     updated_at: {
@@ -29,15 +29,15 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
         allowNull: false
     },
     name: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     email: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     phone: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     created_at: {
@@ -45,39 +45,87 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
         allowNull: false
     },
     adress_cep: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     street: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     number: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     complement: {
-        type: DataTypes.NUMBER, 
-        allowNull: false
+        type: DataTypes.STRING, 
+        allowNull: true
     },
     city: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     bairro: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     state: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     card_operator: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
         allowNull: false
     },
     card_number: {
-        type: DataTypes.NUMBER, 
+        type: DataTypes.STRING, 
+        allowNull: false
+    }
+}, {
+    createdAt: false,
+    updatedAt: false
+})
+
+export const Users = instance.define('Users', {
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+}, {
+    createdAt: false,
+    updatedAt: false
+})
+
+export const Assinaturas = instance.define('Assinaturas', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+    },
+    id_usuario: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    criado_em: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    tipo_de_assinatura: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 }, {

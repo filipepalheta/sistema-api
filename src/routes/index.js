@@ -1,6 +1,6 @@
 import express from 'express'
 import AssinaturaController from '../controllers/AssinaturaController.js'
-import HomeController from '../controllers/HomeController.js'
+
 
 const router = express.Router()
 
