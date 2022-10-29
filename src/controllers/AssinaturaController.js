@@ -10,6 +10,7 @@ class AssinaturaController {
             1: 'Corte',
             4: 'Barba',
             5: 'Corte & Barba',
+            6: 'Teste'
         }
 
         if (transactionType == 'transaction.status') {
