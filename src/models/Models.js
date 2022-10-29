@@ -83,6 +83,10 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
     card_number: {
         type: DataTypes.STRING, 
         allowNull: false
+    },
+    costumer_id: {
+        type: DataTypes.NUMBER, 
+        allowNull: false
     }
 }, {
     createdAt: false,

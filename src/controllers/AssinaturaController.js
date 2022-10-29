@@ -98,7 +98,8 @@ class AssinaturaController {
                         state: costumer.adress.state,
                         card_operator: costumer.card.brand,
                         card_number: costumer.card.number,
-                        vencimento: dadosReq.Transaction.payday
+                        vencimento: dadosReq.Transaction.payday,
+                        costumer_id: costumer.galaxyPayId
                     })
 
                     const verifyEmail = await Users.findOne({
