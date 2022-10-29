@@ -61,7 +61,8 @@ class AssinaturaController {
                     bairro: costumer.adress.bairro,
                     state: costumer.adress.state,
                     card_operator: costumer.card.brand,
-                    card_number: costumer.card.number
+                    card_number: costumer.card.number,
+                    vencimento: dadosReq.Transaction.payday
                 })
 
                 const verifyEmail = await Users.findOne({

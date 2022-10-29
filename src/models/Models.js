@@ -8,6 +8,10 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
         primaryKey: true,
         autoIncrement: true
     },
+    vencimento: {
+        type: DataTypes.DATE,
+        allowNull: true
+    },
     plan_my_id: {
         type: DataTypes.NUMBER, 
         allowNull: false
