@@ -78,15 +78,23 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
     },
     card_operator: {
         type: DataTypes.STRING, 
-        allowNull: false
+        allowNull: true
     },
     card_number: {
         type: DataTypes.STRING, 
-        allowNull: false
+        allowNull: true
     },
     costumer_id: {
         type: DataTypes.NUMBER, 
         allowNull: false
+    },
+    tipo: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    status: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     createdAt: false,
