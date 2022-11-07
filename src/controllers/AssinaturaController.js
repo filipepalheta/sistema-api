@@ -173,8 +173,6 @@ class AssinaturaController {
                                 city: costumer.adress.city,
                                 bairro: costumer.adress.bairro,
                                 state: costumer.adress.state,
-                                card_operator: costumer.card.brand,
-                                card_number: costumer.card.number,
                                 vencimento: dadosReq.Transaction.payday,
                                 status: dadosReq.Transaction.statusDescription
                             }, {
@@ -200,11 +198,10 @@ class AssinaturaController {
                                 city: costumer.adress.city,
                                 bairro: costumer.adress.bairro,
                                 state: costumer.adress.state,
-                                card_operator: costumer.card.brand,
-                                card_number: costumer.card.number,
                                 vencimento: dadosReq.Transaction.payday,
                                 costumer_id: costumer.galaxyPayId,
-                                status: dadosReq.Transaction.statusDescription
+                                status: dadosReq.Transaction.statusDescription,
+                                tipo: dadosReq.Subscription.mainPaymentMethodId
                             })
     
                             const verifyEmail = await Users.findOne({
@@ -213,10 +210,9 @@ class AssinaturaController {
                                 }
                             })
     
-                            if (!verifyEmail) {
+                            if (verifyEmail) {
                                 var date = new Date().toLocaleString()
                                 const tipoDePlano = plans[planId]
-                                console.log(tipoDePlano)
                                 await Assinaturas.create({
                                     id_usuario: verifyEmail.id,
                                     nome: verifyEmail.name,
