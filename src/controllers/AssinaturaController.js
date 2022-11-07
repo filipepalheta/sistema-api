@@ -76,7 +76,8 @@ class AssinaturaController {
                                 card_operator: costumer.card.brand,
                                 card_number: costumer.card.number,
                                 vencimento: dadosReq.Transaction.payday,
-                                status: dadosReq.Transaction.statusDescription
+                                status: dadosReq.Transaction.statusDescription,
+                                tipo: dadosReq.Subscription.mainPaymentMethodId
                             }, {
                                 where: {
                                     galaxyPayId: subId,
@@ -174,7 +175,8 @@ class AssinaturaController {
                                 bairro: costumer.adress.bairro,
                                 state: costumer.adress.state,
                                 vencimento: dadosReq.Transaction.payday,
-                                status: dadosReq.Transaction.statusDescription
+                                status: dadosReq.Transaction.statusDescription,
+                                tipo: dadosReq.Subscription.mainPaymentMethodId
                             }, {
                                 where: {
                                     galaxyPayId: subId,
@@ -204,26 +206,26 @@ class AssinaturaController {
                                 tipo: dadosReq.Subscription.mainPaymentMethodId
                             })
     
-                            const verifyEmail = await Users.findOne({
-                                where: {
-                                    email: costumer.email
-                                }
-                            })
-    
-                            if (verifyEmail) {
-                                var date = new Date().toLocaleString()
-                                const tipoDePlano = plans[planId]
-                                await Assinaturas.create({
-                                    id_usuario: verifyEmail.id,
-                                    nome: verifyEmail.name,
-                                    criado_em: date,
-                                    tipo_de_assinatura: tipoDePlano
-                                })
-                            }
+                            
                         }
                     }
                     
+                    const verifyEmail = await Users.findOne({
+                        where: {
+                            email: dadosReq.Subscription.Customer.emails[0]
+                        }
+                    })
 
+                    if (verifyEmail) {
+                        var date = new Date().toLocaleString()
+                        const tipoDePlano = plans[planId]
+                        await Assinaturas.create({
+                            id_usuario: verifyEmail.id,
+                            nome: verifyEmail.name,
+                            criado_em: date,
+                            tipo_de_assinatura: tipoDePlano
+                        })
+                    }
                 }
             }
 
