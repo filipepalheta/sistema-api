@@ -48,34 +48,6 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
         type: DataTypes.DATE,
         allowNull: false
     },
-    adress_cep: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    },
-    street: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    },
-    number: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    },
-    complement: {
-        type: DataTypes.STRING, 
-        allowNull: true
-    },
-    city: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    },
-    bairro: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    },
-    state: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    },
     card_operator: {
         type: DataTypes.STRING, 
         allowNull: true
@@ -95,6 +67,10 @@ export const Assinatura_Registros = instance.define('assinatura_registros', {
     status: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    galaxyPay: {
+        type: DataTypes.ENUM('sim', 'nao'),
+        allowNull: false
     }
 }, {
     createdAt: false,
