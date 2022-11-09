@@ -122,16 +122,7 @@ class AssinaturaController {
                             created_at: helperCostumer.createdAt,
                             updated_at: helperCostumer.updatedAt,
                             email: helperCostumer.emails[0],
-                            phone: helperCostumer.phones[0],
-                            adress: {
-                                cep: helperCostumer.Address.zipCode,
-                                street: helperCostumer.Address.street,
-                                number: helperCostumer.Address.number,
-                                complement: helperCostumer.Address.complement,
-                                city: helperCostumer.Address.city,
-                                bairro: helperCostumer.Address.neighborhood,
-                                state: helperCostumer.Address.state
-                            }
+                            phone: helperCostumer.phones[0]
                         }
     
                         if (verificar) {
