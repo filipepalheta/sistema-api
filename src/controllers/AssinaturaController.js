@@ -83,7 +83,8 @@ class AssinaturaController {
                                 vencimento: dadosReq.Transaction.payday,
                                 costumer_id: costumer.galaxyPayId,
                                 tipo: dadosReq.Subscription.mainPaymentMethodId,
-                                status: dadosReq.Transaction.statusDescription
+                                status: dadosReq.Transaction.statusDescription,
+                                galaxyPay: 'sim'
                             })
     
                             const verifyEmail = await Users.findOne({
@@ -157,9 +158,9 @@ class AssinaturaController {
                                 vencimento: dadosReq.Transaction.payday,
                                 costumer_id: costumer.galaxyPayId,
                                 status: dadosReq.Transaction.statusDescription,
-                                tipo: dadosReq.Subscription.mainPaymentMethodId
+                                tipo: dadosReq.Subscription.mainPaymentMethodId,
+                                galaxyPay: 'sim'
                             })
-    
                             
                         }
                     }
