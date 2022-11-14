@@ -87,22 +87,6 @@ class AssinaturaController {
                                 galaxyPay: 'sim'
                             })
     
-                            const verifyEmail = await Users.findOne({
-                                where: {
-                                    email: costumer.email
-                                }
-                            })
-    
-                            if (!verifyEmail) {
-                                var date = new Date().toLocaleString()
-                                const tipoDePlano = plans[planId]
-                                await Assinaturas.create({
-                                    id_usuario: verifyEmail.id,
-                                    nome: verifyEmail.name,
-                                    criado_em: date,
-                                    tipo_de_assinatura: tipoDePlano
-                                })
-                            }
                         }
                     }else if(dadosReq.Subscription.mainPaymentMethodId == 'boleto'){
                         const helperCostumer = dadosReq.Subscription.Customer
@@ -163,23 +147,6 @@ class AssinaturaController {
                             })
                             
                         }
-                    }
-                    
-                    const verifyEmail = await Users.findOne({
-                        where: {
-                            email: dadosReq.Subscription.Customer.emails[0]
-                        }
-                    })
-
-                    if (verifyEmail) {
-                        var date = new Date().toLocaleString()
-                        const tipoDePlano = plans[planId]
-                        await Assinaturas.create({
-                            id_usuario: verifyEmail.id,
-                            nome: verifyEmail.name,
-                            criado_em: date,
-                            tipo_de_assinatura: tipoDePlano
-                        })
                     }
                 }
             }
