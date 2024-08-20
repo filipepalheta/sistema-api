@@ -1,5 +1,5 @@
-import {Sequelize} from 'sequelize'
-
+import { Sequelize } from 'sequelize'
+import mysql2 from 'mysql2'
 
 // const instance = new Sequelize(
 //   'geral', 
@@ -11,12 +11,13 @@ import {Sequelize} from 'sequelize'
 // })
 
 const instance = new Sequelize(
-  'palhet67_geral', 
-  'palhet67_usuario', 
-  '6m&G7ZPNh*69', 
-{
+  'palhet67_geral',
+  'palhet67_usuario',
+  '6m&G7ZPNh*69',
+  {
     host: '108.179.193.193',
-    dialect: 'mysql'
-})
+    dialect: 'mysql',
+    dialectModule: mysql2
+  })
 
 export default instance
